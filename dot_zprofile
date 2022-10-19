@@ -1,0 +1,8 @@
+#!/bin/zsh
+
+# For macOS
+export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
+export PATH="/Applications/MacVim.app/Contents/bin:$PATH"
+
+# Created by `pipx` on 2022-09-02 06:31:35
+export PATH="$PATH:/Users/mushi007/.local/bin"

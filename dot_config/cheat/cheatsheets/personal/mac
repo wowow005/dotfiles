@@ -9,4 +9,5 @@ defaults write com.apple.finder ShowStatusBar -bool true
 printf "p *(char*)(void(*)())AudioDeviceDuck=0xc3\nq" | lldb -n WeChat
 printf "p *(char*)(void(*)())AudioDeviceDuck=0xc3\nq" | lldb -n QQ
 
-
+# Reset Accessibility
+tccutil reset Accessibility com.hezongyidev.Bob

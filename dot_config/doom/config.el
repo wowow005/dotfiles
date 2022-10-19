@@ -35,11 +35,8 @@
 ;; wasn't installed correctly. Font issues are rarely Doom issues!
 
 ;; Clock FIXME
-(after! doom-modeline
-  (setq display-time-string-forms
-        '((propertize (concat " 🕘 " 24-hours ":" minutes))))
-  (setq all-the-icons-scale-factor 1.2)
-  (display-time-mode 1)) ; Enable time in the mode-line
+;; (after! doom-modeline
+;;   (display-time-mode 1)) ; Enable time in the mode-line
 
 
 ;; Battery
