@@ -4,10 +4,10 @@
 ;; To install a package with Doom you must declare them here and run 'doom sync'
 ;; on the command line, then restart Emacs for the changes to take effect -- or
 ;; use 'M-x doom/reload'.
-(setq package-archives '(("gnu"   . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/gnu/")
-                         ("melpa" . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/melpa/")
-                         ("melpa-stable" . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/melpa-stable/")
-                         ("org" . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/org/")))
+(setq package-archives '(("gnu"   . "http://1.15.88.122/gnu/")
+                         ("melpa" . "http://1.15.88.122/melpa/")
+                         ("melpa-stable" . "http://1.15.88.122/stable-melpa/")
+                         ("org" . "http://1.15.88.122/org/")))
 
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;(package! some-package)
@@ -58,7 +58,7 @@
 (package! ox-hugo)
 (package! org-download)
 (package! rotate :pin "4e9ac3ff800880bd9b705794ef0f7c99d72900a6")
-(package! org-super-agenda)
+;; (package! org-super-agenda)
 ;; (package! ox-reveal)
 ; (package! keycast :pin "296fba536287e7a0d88109e75a0bc0181647dc5e")
 ; (package! elcord :pin "7aacd702335b4ab3344d3815c0fffed319effdf9")

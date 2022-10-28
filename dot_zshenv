@@ -2,8 +2,11 @@
 
 # For macOS
 eval "$(/opt/homebrew/bin/brew shellenv)"
+export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
+export PATH="/Applications/MacVim.app/Contents/bin:$PATH"
 # GPG_TTY=$(tty)
-# Other XDG paths
+
+# XDG paths
 export XDG_DATA_HOME=${XDG_DATA_HOME:="$HOME/.local/share"}
 export XDG_CACHE_HOME=${XDG_CACHE_HOME:="$HOME/.cache"}
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
@@ -16,7 +19,6 @@ export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export GOPATH="$XDG_DATA_HOME"/go
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
-export HISTFILE="$XDG_DATA_HOME"/zsh/history
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/ripgreprc"
@@ -38,5 +40,8 @@ export VIDEO="mpv"
 export PATH="$HOME/.emacs.d/bin:$PATH"
 . "/Users/mushi007/.local/share/cargo/env"
 
-# Ranger 
+# Ranger
 export RANGER_LOAD_DEFAULT_RC=FALSE
+
+# Pipx
+export PATH="$PATH:/Users/mushi007/.local/bin"
