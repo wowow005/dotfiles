@@ -54,11 +54,11 @@
 
 ;; Packages List
 ; Editorconfig
-(package! editorconfig)
+;; (package! editorconfig)
 (package! ox-hugo)
 (package! org-download)
 (package! rotate :pin "4e9ac3ff800880bd9b705794ef0f7c99d72900a6")
 ;; (package! org-super-agenda)
 ;; (package! ox-reveal)
-; (package! keycast :pin "296fba536287e7a0d88109e75a0bc0181647dc5e")
+;; (package! keycast :pin "296fba536287e7a0d88109e75a0bc0181647dc5e")
 (package! elcord :pin "7aacd702335b4ab3344d3815c0fffed319effdf9")

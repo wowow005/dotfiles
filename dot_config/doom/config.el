@@ -9,6 +9,12 @@
 (setq user-full-name "Mushi"
       user-mail-address "goodhelper007@outlook.com")
 
+;; Simpe settings
+(setq-default
+ delete-by-moving-to-trash t                      ; Delete files to trash
+ window-combination-resize t                      ; take new window space from all other windows (not just current)
+ x-stretch-cursor t)                              ; Stretch cursor to the glyph width
+
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
 ;; - `doom-font' -- the primary font to use
@@ -34,31 +40,17 @@
 ;; refresh your font settings. If Emacs still can't find your font, it likely
 ;; wasn't installed correctly. Font issues are rarely Doom issues!
 
-;; Clock FIXME
-;; (after! doom-modeline
-;;   (display-time-mode 1)) ; Enable time in the mode-line
-
-
-;; Battery
-(after! doom-modeline
-  (let ((battery-str (battery)))
-     (unless (or (equal "Battery status not available" battery-str)
-                 (string-match-p (regexp-quote "unknown") battery-str)
-                 (string-match-p (regexp-quote "N/A") battery-str))
-      (display-battery-mode 1))))
-
-;; Mode line customization
-(after! doom-modeline
-  (setq doom-modeline-major-mode-icon t
-        doom-modeline-major-mode-color-icon t
-        doom-modeline-buffer-state-icon t))
-
 ;; Frame sizing
 (add-to-list 'default-frame-alist '(width . 150))
 (add-to-list 'default-frame-alist '(height . 50))
 
-;; Display fill column
-;; (setq fill-column 120)
+(setq undo-limit 80000000                         ; Raise undo-limit to 80Mb
+      evil-want-fine-undo t                       ; By default while in insert all changes are one big blob. Be more granular
+      auto-save-default t                         ; Nobody likes to loose work, I certainly don't
+      truncate-string-ellipsis "â€¦"                ; Unicode ellispis are nicer than "...", and also save /precious/ space
+      ;; password-cache-expiry nil                   ; I can trust my computers ... can't I?
+      ;; scroll-preserve-screen-position 'always     ; Don't have `point' jump around
+      scroll-margin 2)                            ; It's nice to maintain a little margin
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -73,16 +65,11 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/MEGA/org/")
 
-;; Latex
-;; (setq org-latex-pdf-process '("tectonic -Z shell-escape %f"))
-
-(after! org
-  (setq org-latex-src-block-backend 'minted
-        org-latex-packages-alist '(("" "minted"))
-        org-latex-pdf-process
-        '("xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-          "xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
-  )
+;; Company
+(after! company
+  (setq company-idle-delay 0.5))
+(setq-default history-length 1000)
+(setq-default prescient-history-length 1000)
 
 ;; Latex preview
 (after! org(setq org-preview-latex-default-process 'xdvsvgm))
@@ -97,24 +84,35 @@
               :latex-compiler ("xelatex -interaction nonstopmode -no-pdf -output-directory %o %f")
               :image-converter ("dvisvgm %f -n -b min -c %S -o %O"))))
 
-;; org-super-agenda
-;; (use-package! org-super-agenda
-;;   :after org-agenda
-;;   :init
-;;   (setq org-super-agenda-mode 1))
+;; Elegantpaper
+(with-eval-after-load 'ox-latex
+ ;; http://orgmode.org/worg/org-faq.html#using-xelatex-for-pdf-export
+ ;; latexmk runs pdflatex/xelatex (whatever is specified) multiple times
+ ;; automatically to resolve the cross-references.
+ (setq org-latex-pdf-process '("latexmk -xelatex -quiet -shell-escape -f %f"))
+ (add-to-list 'org-latex-classes
+               '("elegantpaper"
+                 "\\documentclass[lang=cn]{elegantpaper}
+                 [NO-DEFAULT-PACKAGES]
+                 [PACKAGES]
+                 [EXTRA]"
+                 ("\\section{%s}" . "\\section*{%s}")
+                 ("\\subsection{%s}" . "\\subsection*{%s}")
+                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+  ;; (setq org-latex-listings 'minted)
+  ;; (add-to-list 'org-latex-packages-alist '("" "minted"))
+  )
 
-;; org-reveal
-;; (use-package! ox-reveal
-;;   :ensure t
-;;   :config
-;;   (reveal-mode 1)
-;;   )
-
-;; Projectile
-;; (setq projectile-ignored-projects '("~/" "/tmp" "~/.emacs.d/.local/straight/repos/"))
-;; (defun projectile-ignored-project-function (filepath)
-;;   "Return t if FILEPATH is within any of `projectile-ignored-projects'"
-;;   (or (mapcar (lambda (p) (s-starts-with-p p filepath)) projectile-ignored-projects)))
+;; Minted
+(after! org
+  (setq org-latex-src-block-backend 'minted
+        org-latex-packages-alist '(("" "minted"))
+        org-latex-pdf-process
+        '("xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+          "xelatex -shell-escape -interaction nonstopmode -output-directory %o %f")
+    ))
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
@@ -123,11 +121,6 @@
 ;;     (setq x y))
 ;;
 
-;; Company
-(after! company
-  (setq company-idle-delay 0.5))
-(setq-default history-length 1000)
-(setq-default prescient-history-length 1000)
 
 ;; The exceptions to this rule:
 ;;
@@ -155,8 +148,11 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-;; Pyim
-;; (use-package)
+;; Emacs-rime
+;; (use-package! rime
+;;   :custom
+;;   (default-input-method "rime")
+;;   (rime-librime-root "~/.emacs.d/librime/dist"))
 
 ;; Org-download
 (use-package! org-download
@@ -165,6 +161,7 @@
   (setq-default org-download-method 'directory)
   (setq-default org-download-image-dir "./img")
   (setq-default org-download-heading-lvl 'nil)
+  (setq-default org-download-timestamp "%Y-%m-%d-%H-%M-%S")
   ;;FIXME (setq org-download-screenshot-method "screencapture -i %s")
   )
 
