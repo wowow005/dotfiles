@@ -62,3 +62,7 @@
 ;; (package! ox-reveal)
 ;; (package! keycast :pin "296fba536287e7a0d88109e75a0bc0181647dc5e")
 (package! elcord :pin "7aacd702335b4ab3344d3815c0fffed319effdf9")
+;; (package! org-pandoc-import
+;;   :recipe (:host github
+;;            :repo "tecosaur/org-pandoc-import"
+;;            :files ("*.el" "filters" "preprocessors")))

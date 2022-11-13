@@ -24,11 +24,11 @@ zmodule utility
 #
 
 # Exposes to prompts how long the last command took to execute, used by asciiship.
-# zmodule duration-info
+zmodule duration-info
 # Exposes git repository status information to prompts, used by asciiship.
-# zmodule git-info
-# A heavily reduced, ASCII-only version of the Spaceship and Starship prompts.
-# zmodule asciiship
+zmodule git-info
+# Formats the current working directory to be used by prompts.
+zmodule prompt-pwd
 
 #
 # Completion
@@ -60,3 +60,6 @@ zmodule zsh-users/zsh-autosuggestions
 
 # Exa
 zmodule exa
+
+# Theme
+zmodule minimal

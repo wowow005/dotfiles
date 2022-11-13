@@ -169,3 +169,5 @@
 (use-package! editorconfig
   :config
   (editorconfig-mode 1))
+
+;; (use-package! org-pandoc-import :after org)

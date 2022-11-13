@@ -133,7 +133,7 @@ unset key
 # }}} End configuration added by Zim install
 
 # Startship
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 
 # Alias
 alias e='emacsclient -a "" -c -n "$@"'

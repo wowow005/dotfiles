@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: hugo.blog
-# key: <hugo
+# key: <org.blog
 # --
 #+OPTIONS: author:nil ^:{}
 #+hugo_front_matter_format: yaml
