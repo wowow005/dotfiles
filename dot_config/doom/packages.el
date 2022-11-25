@@ -4,9 +4,9 @@
 ;; To install a package with Doom you must declare them here and run 'doom sync'
 ;; on the command line, then restart Emacs for the changes to take effect -- or
 ;; use 'M-x doom/reload'.
-(setq package-archives '(("gnu"   . "http://1.15.88.122/gnu/")
-                         ("melpa" . "http://1.15.88.122/melpa/")
-                         ("melpa-stable" . "http://1.15.88.122/stable-melpa/")
+(setq package-archives '(("gnu"   . "http://mirrors.ustc.edu.cn/elpa/gnu/")
+                         ("melpa" . "http://mirrors.ustc.edu.cn/elpa/melpa/")
+                         ("melpa-stable" . "http://mirrors.ustc.edu.cn/elpa/nongnu/")
                          ("org" . "http://1.15.88.122/org/")))
 
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:

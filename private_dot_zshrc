@@ -11,10 +11,6 @@
 # History
 #
 
-# History size
-HISTSIZE=1000
-SAVEHIST=1000
-
 # Remove older command from the history if a duplicate is to be added.
 setopt HIST_IGNORE_ALL_DUPS
 
@@ -159,3 +155,6 @@ vterm_printf(){
         printf "\e]%s\e\\" "$1"
     fi
 }
+
+# GPG for macOS
+export GPG_TTY=$(tty)
