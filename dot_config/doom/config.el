@@ -159,7 +159,7 @@
   ;; :init
   :config
   (setq-default org-download-method 'directory)
-  (setq-default org-download-image-dir "./img")
+  (setq-default org-download-image-dir "./images")
   (setq-default org-download-heading-lvl 'nil)
   (setq-default org-download-timestamp "%Y-%m-%d-%H-%M-%S")
   ;;FIXME (setq org-download-screenshot-method "screencapture -i %s")
@@ -171,3 +171,5 @@
   (editorconfig-mode 1))
 
 ;; (use-package! org-pandoc-import :after org)
+
+(use-package! ox-spectacle)

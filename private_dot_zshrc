@@ -136,6 +136,7 @@ alias e='emacsclient -a "" -c -n "$@"'
 alias vim='lvim'
 alias ra='ranger'
 alias ssh='kitty +kitten ssh'
+alias ls='lsd'
 
 # For macOS
 export PATH="$PATH:/Users/mushi007/.local/bin"
@@ -157,4 +158,4 @@ vterm_printf(){
 }
 
 # GPG for macOS
-export GPG_TTY=$(tty)
+# export GPG_TTY=$(tty)

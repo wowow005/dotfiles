@@ -4,10 +4,10 @@
 ;; To install a package with Doom you must declare them here and run 'doom sync'
 ;; on the command line, then restart Emacs for the changes to take effect -- or
 ;; use 'M-x doom/reload'.
-(setq package-archives '(("gnu"   . "http://mirrors.ustc.edu.cn/elpa/gnu/")
-                         ("melpa" . "http://mirrors.ustc.edu.cn/elpa/melpa/")
-                         ("melpa-stable" . "http://mirrors.ustc.edu.cn/elpa/nongnu/")
-                         ("org" . "http://1.15.88.122/org/")))
+;; (setq package-archives '(("gnu"   . "http://mirrors.ustc.edu.cn/elpa/gnu/")
+;;                          ("melpa" . "http://mirrors.ustc.edu.cn/elpa/melpa/")
+;;                          ("melpa-stable" . "http://mirrors.ustc.edu.cn/elpa/nongnu/")
+;;                          ("org" . "http://1.15.88.122/org/")))
 
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;(package! some-package)
@@ -66,3 +66,5 @@
 ;;   :recipe (:host github
 ;;            :repo "tecosaur/org-pandoc-import"
 ;;            :files ("*.el" "filters" "preprocessors")))
+
+(package! ox-spectacle)

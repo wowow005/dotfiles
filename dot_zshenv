@@ -50,3 +50,6 @@ export PATH="$PATH:/Users/mushi007/.local/bin"
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
 export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
 export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
+
+# CLI proxy
+export https_proxy=http://192.168.50.1:3333 http_proxy=http://192.168.50.1:3333 all_proxy=socks5://192.168.50.1:23456
